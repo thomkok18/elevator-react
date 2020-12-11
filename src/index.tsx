@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from "./components/App";
+import Elevator from "./components/Elevator";
 
 ReactDOM.render(
-    <App />,
+    <Elevator />,
     document.querySelector('#root')
 );
