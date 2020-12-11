@@ -1,0 +1,31 @@
+.btn-list {
+  display: flex;
+  flex-direction: column;
+
+  .btn {
+    height: 40px;
+    width: 40px;
+
+    border: 1px solid #4D4D68;
+    border-radius: 10px;
+
+    background-color: #4D4D68;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &:focus {
+      background-color: #13B38B;
+      border-color: #13B38B;
+      outline: none;
+    }
+  }
+}
+

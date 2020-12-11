@@ -1,0 +1,1 @@
+.btn-list{display:flex;flex-direction:column}.btn-list .btn{height:40px;width:40px;border:1px solid #4d4d68;border-radius:10px;background-color:#4d4d68;color:#fff;font-weight:700}.btn-list .btn:hover{cursor:pointer}.btn-list .btn:not(:last-child){margin-bottom:10px}.btn-list .btn:focus{background-color:#13b38b;border-color:#13b38b;outline:none}
