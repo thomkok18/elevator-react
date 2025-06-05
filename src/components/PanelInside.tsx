@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentPersonFloor, setInside} from "../redux/actions/person";
 import {setCallUpOrDown, setCurrentElevatorFloor, setDoor, setMoving} from "../redux/actions/elevator";
@@ -11,6 +11,7 @@ const PanelInside = () => {
 
     const [displayedPanelCounter, setDisplayedPanelCounter] = useState<string>("/images/inside-panel/panel-counter/0.png");
     const [displayedPanel, setDisplayedPanel] = useState<string>("/images/inside-panel/panel/panel.png");
+    const [alarm] = useState<HTMLAudioElement>(new Audio('/audios/elevator-alarm.mp3'));
 
     const setPanelInside = (floor: number) => {
         if (floor < -3 || floor > 10) return;
@@ -52,10 +53,24 @@ const PanelInside = () => {
         }, 1000 * (floorsLeft + 2));
     }
 
+    const activateAlarm = () => {
+        if (alarm.paused) {
+            setDisplayedPanel(`/images/inside-panel/panel/panel-alarm.png`);
+            alarm.play();
+        } else {
+            setDisplayedPanel(`/images/inside-panel/panel/panel.png`);
+            alarm.pause();
+        }
+    };
+
     const getOut = () => {
         dispatch(setInside(false));
         dispatch(setDoor(false));
     }
+
+    useEffect(() => {
+        alarm.loop = true;
+    });
 
     return (
         <div className="relative">
@@ -89,7 +104,7 @@ const PanelInside = () => {
             <div className="absolute top-[604px] left-[109px] h-[52px] w-[52px] cursor-pointer" onClick={() => setDisplayedPanel("/images/inside-panel/panel/panel.png")} />
 
             <div className="absolute top-[669px] left-[39px] h-[52px] w-[52px] cursor-pointer" onClick={getOut} />
-            <div className="absolute top-[669px] left-[109px] h-[52px] w-[52px] cursor-pointer" onClick={() => setDisplayedPanel("/images/inside-panel/panel/panel.png")} />
+            <div className="absolute top-[669px] left-[109px] h-[52px] w-[52px] cursor-pointer" onClick={activateAlarm} />
         </div>
     );
 };
