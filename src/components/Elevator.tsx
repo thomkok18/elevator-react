@@ -1,16 +1,29 @@
-import React, {useState} from "react";
-import ButtonList from "./ButtonList";
+import React from "react";
+import PanelOutside from "./PanelOutside";
+import Door from "./Door";
+import FloorCounter from "./FloorCounter";
+import Floor from "./Floor";
 
-/**
- * TODO: Elevator starts with 0 delay. Each floor is 2 seconds delay.
- * TODO: If you choose to go up, but choose a lower floor, your floor is going to be last in the array.
- */
 const Elevator = () => {
-    const [floorsToGo, setFloorsToGo] = useState([]);
-    const floors: number = 5;
-
     return (
-        <ButtonList floors={floors}/>
+        <div className="flex justify-center">
+            <div className="flex flex-col items-center">
+                <div className="mb-4">
+                    <FloorCounter />
+                </div>
+
+                <Door />
+            </div>
+            <div className="flex items-center">
+                <div className="flex items-center ml-4">
+                    <PanelOutside />
+                </div>
+                <div className="flex items-center ml-10">
+                    <Floor />
+                </div>
+            </div>
+        </div>
+
     );
 };
 
