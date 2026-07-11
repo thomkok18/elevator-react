@@ -10,10 +10,10 @@ const Person = () => {
     const person: IPersonState = useSelector((state: RootState) => state.person);
 
     return (
-        <>
+        <div className="select-none">
             {
                 !person.inside ?
-            <div className="flex items-end px-72 mt-4">
+            <div className="flex items-end px-60 mt-4">
                 <div className="flex justify-center w-full">
                     <div>
                         <Elevator/>
@@ -27,7 +27,7 @@ const Person = () => {
                 <PanelInside />
             </div>
             }
-        </>
+        </div>
     );
 }
 

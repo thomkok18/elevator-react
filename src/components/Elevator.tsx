@@ -18,7 +18,7 @@ const Elevator = () => {
                 <div className="flex items-center ml-4">
                     <PanelOutside />
                 </div>
-                <div className="flex items-center ml-10">
+                <div className="flex items-center mx-10">
                     <Floor />
                 </div>
             </div>

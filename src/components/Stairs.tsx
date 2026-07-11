@@ -24,14 +24,25 @@ const Stairs = () => {
 
     return (
         <div className="relative">
-            <img src="/images/stairs/up-down.jpg" alt={"Stairs"} height="360" width="540" />
+            {
+                person.currentFloor !== 10 && person.currentFloor !== -3 &&
+                <img src="/images/stairs/up-down.png" alt={"Stairs"} height="969" width="1624" />
+            }
+            {
+                person.currentFloor === 10 &&
+                <img src="/images/stairs/down.png" alt={"Stairs"} height="969" width="1624" />
+            }
+            {
+                person.currentFloor === -3 &&
+                <img src="/images/stairs/up.png" alt={"Stairs"} height="969" width="1624" />
+            }
             {
                 person.currentFloor !== 10 &&
-                <div className="absolute top-[0] right-[0] h-full w-1/2 cursor-pointer" onClick={() => changeFloor("up")}></div>
+                <div className="absolute top-[0] left-[0] h-full w-1/2 cursor-pointer" onClick={() => changeFloor("up")}></div>
             }
             {
                 person.currentFloor !== -3 &&
-                <div className="absolute bottom-[0] left-[0] h-full w-1/2 cursor-pointer" onClick={() => changeFloor("down")}></div>
+                <div className="absolute bottom-[0] right-[0] h-full w-1/2 cursor-pointer" onClick={() => changeFloor("down")}></div>
             }
         </div>
     );

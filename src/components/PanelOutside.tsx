@@ -69,7 +69,7 @@ const PanelOutside = () => {
     }, [elevator.currentFloor, person.currentFloor]);
 
     return (
-        <div className="relative">
+        <div className="relative w-[60px]">
             <img
                 src={displayOutsidePanel}
                 alt={"Call elevator"}
