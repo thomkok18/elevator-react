@@ -10,17 +10,17 @@ const Door = () => {
     const person: IPersonState = useSelector((state: RootState) => state.person);
     const dispatch = useDispatch();
 
-    const [displayedDoor, setDisplayedDoor] = useState<string>("/images/door/closed.png");
+    const [displayedDoor, setDisplayedDoor] = useState<string>("/images/outside-door/closed.png");
 
     const hasRun = useRef<boolean>(false);
 
     useEffect(() => {
         if (!hasRun.current) {
             if (elevator.isOpen && elevator.currentFloor === person.currentFloor) {
-                setTimeout(() => setDisplayedDoor("/images/door/half-open.png"), 500);
-                setTimeout(() => setDisplayedDoor("/images/door/open.png"), 1000);
+                setTimeout(() => setDisplayedDoor("/images/outside-door/half-open.png"), 500);
+                setTimeout(() => setDisplayedDoor("/images/outside-door/open.png"), 1000);
             } else {
-                setDisplayedDoor("/images/door/closed.png");
+                setDisplayedDoor("/images/outside-door/closed.png");
             }
 
             if (!elevator.isOpen) hasRun.current = false;
